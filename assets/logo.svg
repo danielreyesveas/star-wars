@@ -1,0 +1,37 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<symbol
+  viewBox="0 0 100 100"
+  id="context-menu--add-diagram"
+  xmlns="http://www.w3.org/2000/svg">
+  <path
+    fill-opacity=".941"
+    d="M0 23.88h27.16v52.241H0zM76.543 0H100v26.12H76.543zM76.543 36.94H100v26.12H76.543zM76.543 73.88H100V100H76.543z"></path>
+  <path
+    d="M75.309 13.06L25.926 49.63h51.852"
+    fill="none"
+    stroke-width="7.183"
+    stroke-linecap="round"
+    stroke-miterlimit="1"></path>
+  <path
+    d="M25.926 53.547l49.383 32.65"
+    fill="none"
+    stroke-width="7.183"
+    stroke-linecap="round"></path>
+</symbol>
+
+<symbol
+  viewBox="0 0 99.724 100"
+  id="context-menu--conn-curve"
+  xmlns="http://www.w3.org/2000/svg">
+  <g
+    fill="none"
+    stroke-width="10.196">
+    <path
+      d="M71.771 50.084l20.98 24.051-22.26 22.26M5.19.194C1.797 89.358 92.385 73.939 92.385 73.939"></path>
+  </g>
+</symbol>
+
+</svg>

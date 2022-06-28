@@ -14,11 +14,12 @@
 
 body {
 	font-family: "Noto Sans", sans-serif;
-	color: $clr-gray500;
+	color: $font-primary;
+	background: $bg;
 }
 
 .title {
-	margin: 0;
+	margin-bottom: 2rem;
 	line-height: 1.15;
 	font-size: 4rem;
 	text-align: center;
@@ -47,37 +48,44 @@ body {
 
 .wrapper {
 	padding: 2rem 0;
+	margin: 2rem;
 }
 
 .cards-wrapper {
-	margin: 2rem;
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: 1fr;
 	justify-content: center;
 }
 
-.btn {
-	border: none;
-	border-top: 1px solid $clr-gray300;
-	background-color: transparent;
-	font-family: inherit;
-	font-size: 1rem;
-	font-weight: bold;
-	color: inherit;
-	width: 100%;
-	padding-top: 1rem;
-	margin-top: 1rem;
-	cursor: pointer;
+.load_more_btn {
+	button {
+		background-color: $btn;
+		border-radius: $btn-radius;
+		border: 2px solid $clr-gray700;
+		font-family: inherit;
+		font-size: 1rem;
+		font-weight: bold;
+		color: inherit;
+		width: 10rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		margin-top: 2.5rem;
+		cursor: pointer;
 
-	&:hover {
-		color: $clr-primary;
+		&:hover {
+			color: $clr-primary;
+		}
 	}
 }
 
 .details {
 	&__wrapper {
 		padding: 2rem;
+	}
+
+	&__back {
+		cursor: pointer;
 	}
 
 	&__main {
@@ -88,14 +96,22 @@ body {
 		p {
 			font-size: 2.4rem;
 			line-height: normal;
-			text-decoration: underline;
+			margin-top: 1rem;
 		}
 	}
 
 	&__body {
+		background-image: repeating-linear-gradient(
+			-35deg,
+			$bg-light,
+			$bg-light 2px,
+			rgba(255, 255, 255, 0.75) 0,
+			rgba(255, 255, 255, 0.75) 5px
+		);
 		box-shadow: 0 0 10px 5px $clr-gray300;
 		border-radius: $radius;
-
+		color: $clr-bold;
+		font-weight: bold;
 		display: grid;
 		margin-top: 2.5rem;
 		gap: 1rem;
@@ -112,6 +128,8 @@ body {
 		margin-top: 2rem;
 
 		&__title {
+			color: $font-tertiary;
+			font-weight: bold;
 			font-size: 1.8rem;
 		}
 
@@ -135,7 +153,7 @@ body {
 
 	.details {
 		&__body {
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(2, 1fr);
 
 			p {
 				min-height: 2.4rem;
@@ -147,5 +165,22 @@ body {
 @media screen and (min-width: 900px) {
 	.cards-wrapper {
 		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.details {
+		&__body {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		&__back {
+			&::after {
+				color: $font-secondary;
+				content: "back to main list";
+				text-decoration: underline;
+				position: relative;
+				top: -0.5rem;
+				font-size: 1.2rem;
+				padding-left: 0.8rem;
+			}
+		}
 	}
 }

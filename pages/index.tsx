@@ -46,36 +46,17 @@ export default function Home() {
 			</Head>
 
 			<h1 className="title">Star Wars Characters</h1>
+
 			<div className="cards-wrapper">
 				{people.map((people, key) => (
 					<Card character={people} key={key} />
 				))}
 			</div>
 			{nextPage && (
-				<div>
-					<button className="btn" onClick={loadMore}>
-						Load More
-					</button>
+				<div className="load_more_btn">
+					<button onClick={loadMore}>Load More</button>
 				</div>
 			)}
-
-			<footer className="footer">
-				<a
-					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Powered by{" "}
-					<span className="footer__logo">
-						<Image
-							src="/vercel.svg"
-							alt="Vercel Logo"
-							width={72}
-							height={16}
-						/>
-					</span>
-				</a>
-			</footer>
 		</div>
 	);
 }
