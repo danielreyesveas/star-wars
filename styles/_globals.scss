@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+@import "./variables";
+
+// Components
+@import "../components/card.scss";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Noto Sans", sans-serif;
+	color: $clr-gray500;
+}
+
+.title {
+	margin: 0;
+	line-height: 1.15;
+	font-size: 4rem;
+	text-align: center;
+}
+
+.footer {
+	display: flex;
+	flex: 1;
+	padding: 2rem 0;
+	border-top: 1px solid #eaeaea;
+	justify-content: center;
+	align-items: center;
+
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-grow: 1;
+	}
+
+	&__logo {
+		height: 1em;
+		margin-left: 0.5rem;
+	}
+}
+
+.wrapper {
+	padding: 2rem 0;
+}
+
+.cards-wrapper {
+	margin: 2rem;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 1fr;
+	justify-content: center;
+}
+
+.btn {
+	border: none;
+	border-top: 1px solid $clr-gray300;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: bold;
+	color: inherit;
+	width: 100%;
+	padding-top: 1rem;
+	margin-top: 1rem;
+	cursor: pointer;
+
+	&:hover {
+		color: $clr-primary;
+	}
+}
+
+.details {
+	&__wrapper {
+		padding: 2rem;
+	}
+
+	&__main {
+		margin: 2rem;
+	}
+
+	&__name {
+		p {
+			font-size: 2.4rem;
+			line-height: normal;
+			text-decoration: underline;
+		}
+	}
+
+	&__body {
+		box-shadow: 0 0 10px 5px $clr-gray300;
+		border-radius: $radius;
+
+		display: grid;
+		margin-top: 2.5rem;
+		gap: 1rem;
+		grid-template-columns: 1fr;
+		justify-content: center;
+		padding: 2rem;
+
+		span {
+			text-transform: capitalize;
+		}
+	}
+
+	&__films {
+		margin-top: 2rem;
+
+		&__title {
+			font-size: 1.8rem;
+		}
+
+		&__list {
+			margin-top: 1rem;
+
+			p {
+				&::before {
+					content: "-";
+					padding-right: 0.5rem;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.cards-wrapper {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.details {
+		&__body {
+			grid-template-columns: repeat(3, 1fr);
+
+			p {
+				min-height: 2.4rem;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.cards-wrapper {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "../styles/_globals.scss";
 import { AppProps } from "next/app";
 import axios from "axios";
 

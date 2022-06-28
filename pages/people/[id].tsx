@@ -43,32 +43,55 @@ export default function PeopleComponent() {
 	}, [id, fetchCharacter]);
 
 	return (
-		<div>
+		<div className="details">
 			{character && (
-				<>
-					<div>
-						<p>Name: {character.name}</p>
-						<p>Height: {character.height}</p>
-						<p>Mass: {character.mass}</p>
-						<p>Hair Color: {character.hair_color}</p>
-						<p>Skin Color: {character.skin_color}</p>
-						<p>Eye Color: {character.eye_color}</p>
-						<p>Birth Year: {character.birth_year}</p>
-						<p>Gender: {character.gender}</p>
-					</div>
-					<div>
-						<p>{character.films.length} Films</p>
-						{character.films_details.map((item, key) => (
-							<p key={key}>
-								{item.title}: {dayjs(item.created).fromNow()}
+				<div className="details__wrapper">
+					<div className="details__main">
+						<div className="details__name">
+							<p>{character.name}</p>
+						</div>
+						<div className="details__body">
+							<p>
+								Height: <span>{character.height}</span>
 							</p>
-						))}
+							<p>
+								Mass: <span>{character.mass}</span>
+							</p>
+							<p>
+								Hair Color: <span>{character.hair_color}</span>
+							</p>
+							<p>
+								Skin Color: <span>{character.skin_color}</span>
+							</p>
+							<p>
+								Eye Color: <span>{character.eye_color}</span>
+							</p>
+							<p>
+								Birth Year: <span>{character.birth_year}</span>
+							</p>
+							<p>
+								Gender: <span>{character.gender}</span>
+							</p>
+						</div>
+						<div className="details__films">
+							<p className="details__films__title">
+								{character.films.length} Films
+							</p>
+							<div className="details__films__list">
+								{character.films_details.map((item, key) => (
+									<p key={key}>
+										{item.title}:{" "}
+										{dayjs(item.created).fromNow()}
+									</p>
+								))}
+							</div>
+						</div>
+						<Link href="/">
+							<button>Back</button>
+						</Link>
 					</div>
-				</>
+				</div>
 			)}
-			<Link href="/">
-				<button>Back</button>
-			</Link>
 		</div>
 	);
 }
