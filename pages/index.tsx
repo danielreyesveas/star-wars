@@ -8,8 +8,6 @@ import axios from "axios";
 import { People, PeopleResponse } from "../types";
 import Card from "../components/Card";
 
-import styles from "../styles/Home.module.css";
-
 export default function Home() {
 	const [people, setPeople] = useState<People[]>([]);
 	const [nextPage, setNextPage] = useState<string | null>(null);
@@ -40,45 +38,25 @@ export default function Home() {
 	}, [page, fetchPeople]);
 
 	return (
-		<div className={styles.container}>
+		<div className="wrapper">
 			<Head>
 				<title>Star Wars</title>
-				<meta name="description" content="Star Wars app" />
+				<meta name="description" content="Star Wars Characters" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<main className={styles.main}>
-				<h1 className={styles.title}>Star Wars</h1>
+			<h1 className="title">Star Wars Characters</h1>
 
-				<div>
-					{people.map((people, key) => (
-						<Card character={people} key={key} />
-					))}
+			<div className="cards-wrapper">
+				{people.map((people, key) => (
+					<Card character={people} key={key} />
+				))}
+			</div>
+			{nextPage && (
+				<div className="load_more_btn">
+					<button onClick={loadMore}>Load More</button>
 				</div>
-				{nextPage && (
-					<div>
-						<button onClick={loadMore}>Load More</button>
-					</div>
-				)}
-			</main>
-
-			<footer className={styles.footer}>
-				<a
-					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Powered by{" "}
-					<span className={styles.logo}>
-						<Image
-							src="/vercel.svg"
-							alt="Vercel Logo"
-							width={72}
-							height={16}
-						/>
-					</span>
-				</a>
-			</footer>
+			)}
 		</div>
 	);
 }

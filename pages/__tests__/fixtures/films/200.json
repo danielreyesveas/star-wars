@@ -1,0 +1,51 @@
+{
+	"data": {
+		"count": 6,
+		"next": null,
+		"previous": null,
+		"results": [
+			{
+				"title": "A New Hope",
+				"episode_id": 4,
+				"release_date": "1977-05-25",
+				"created": "2014-12-10T14:23:31.880000Z",
+				"url": "https://swapi.dev/api/films/1/"
+			},
+			{
+				"title": "The Empire Strikes Back",
+				"episode_id": 5,
+				"release_date": "1980-05-17",
+				"created": "2014-12-12T11:26:24.656000Z",
+				"url": "https://swapi.dev/api/films/2/"
+			},
+			{
+				"title": "Return of the Jedi",
+				"episode_id": 6,
+				"release_date": "1983-05-25",
+				"created": "2014-12-18T10:39:33.255000Z",
+				"url": "https://swapi.dev/api/films/3/"
+			},
+			{
+				"title": "The Phantom Menace",
+				"episode_id": 1,
+				"release_date": "1999-05-19",
+				"created": "2014-12-19T16:52:55.740000Z",
+				"url": "https://swapi.dev/api/films/4/"
+			},
+			{
+				"title": "Attack of the Clones",
+				"episode_id": 2,
+				"release_date": "2002-05-16",
+				"created": "2014-12-20T10:57:57.886000Z",
+				"url": "https://swapi.dev/api/films/5/"
+			},
+			{
+				"title": "Revenge of the Sith",
+				"episode_id": 3,
+				"release_date": "2005-05-19",
+				"created": "2014-12-20T18:49:38.403000Z",
+				"url": "https://swapi.dev/api/films/6/"
+			}
+		]
+	}
+}

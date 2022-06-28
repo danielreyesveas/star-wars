@@ -4,6 +4,7 @@ export interface Film {
 	episode_id: string;
 	title: string;
 	url: string;
+	release_date: string;
 }
 
 export interface FilmResponse {
