@@ -1,0 +1,105 @@
+{
+	"data": {
+		"count": 20,
+		"next": null,
+		"previous": "https://swapi.dev/api/people/?page=1",
+		"results": [
+			{
+				"name": "Anakin Skywalker",
+				"birth_year": "41.9BBY",
+				"films": [
+					"https://swapi.dev/api/films/4/",
+					"https://swapi.dev/api/films/5/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/11/"
+			},
+			{
+				"name": "Wilhuff Tarkin",
+				"birth_year": "64BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/12/"
+			},
+			{
+				"name": "Chewbacca",
+				"birth_year": "200BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/2/",
+					"https://swapi.dev/api/films/3/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/13/"
+			},
+			{
+				"name": "Han Solo",
+				"birth_year": "29BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/2/",
+					"https://swapi.dev/api/films/3/"
+				],
+				"url": "https://swapi.dev/api/people/14/"
+			},
+			{
+				"name": "Greedo",
+				"birth_year": "44BBY",
+				"films": ["https://swapi.dev/api/films/1/"],
+				"url": "https://swapi.dev/api/people/15/"
+			},
+			{
+				"name": "Jabba Desilijic Tiure",
+				"birth_year": "600BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/3/",
+					"https://swapi.dev/api/films/4/"
+				],
+				"url": "https://swapi.dev/api/people/16/"
+			},
+			{
+				"name": "Wedge Antilles",
+				"birth_year": "21BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/2/",
+					"https://swapi.dev/api/films/3/"
+				],
+				"url": "https://swapi.dev/api/people/18/"
+			},
+			{
+				"name": "Jek Tono Porkins",
+				"birth_year": "unknown",
+				"films": ["https://swapi.dev/api/films/1/"],
+				"url": "https://swapi.dev/api/people/19/"
+			},
+			{
+				"name": "Yoda",
+				"birth_year": "896BBY",
+				"films": [
+					"https://swapi.dev/api/films/2/",
+					"https://swapi.dev/api/films/3/",
+					"https://swapi.dev/api/films/4/",
+					"https://swapi.dev/api/films/5/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/20/"
+			},
+			{
+				"name": "Palpatine",
+				"birth_year": "82BBY",
+				"films": [
+					"https://swapi.dev/api/films/2/",
+					"https://swapi.dev/api/films/3/",
+					"https://swapi.dev/api/films/4/",
+					"https://swapi.dev/api/films/5/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/21/"
+			}
+		]
+	}
+}

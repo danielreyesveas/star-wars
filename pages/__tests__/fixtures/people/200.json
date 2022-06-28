@@ -1,0 +1,113 @@
+{
+	"data": {
+		"count": 20,
+		"next": "people/?page=2",
+		"previous": null,
+		"results": [
+			{
+				"name": "Luke Skywalker",
+				"birth_year": "19BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/2/",
+					"https://swapi.dev/api/films/3/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/1/"
+			},
+			{
+				"name": "C-3PO",
+				"birth_year": "112BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/2/",
+					"https://swapi.dev/api/films/3/",
+					"https://swapi.dev/api/films/4/",
+					"https://swapi.dev/api/films/5/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/2/"
+			},
+			{
+				"name": "R2-D2",
+				"birth_year": "33BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/2/",
+					"https://swapi.dev/api/films/3/",
+					"https://swapi.dev/api/films/4/",
+					"https://swapi.dev/api/films/5/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/3/"
+			},
+			{
+				"name": "Darth Vader",
+				"birth_year": "41.9BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/2/",
+					"https://swapi.dev/api/films/3/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/4/"
+			},
+			{
+				"name": "Leia Organa",
+				"birth_year": "19BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/2/",
+					"https://swapi.dev/api/films/3/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/5/"
+			},
+			{
+				"name": "Owen Lars",
+				"birth_year": "52BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/5/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/6/"
+			},
+			{
+				"name": "Beru Whitesun lars",
+				"birth_year": "47BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/5/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/7/"
+			},
+			{
+				"name": "R5-D4",
+				"birth_year": "unknown",
+				"films": ["https://swapi.dev/api/films/1/"],
+				"url": "https://swapi.dev/api/people/8/"
+			},
+			{
+				"name": "Biggs Darklighter",
+				"birth_year": "24BBY",
+				"films": ["https://swapi.dev/api/films/1/"],
+				"url": "https://swapi.dev/api/people/9/"
+			},
+			{
+				"name": "Obi-Wan Kenobi",
+				"birth_year": "57BBY",
+				"films": [
+					"https://swapi.dev/api/films/1/",
+					"https://swapi.dev/api/films/2/",
+					"https://swapi.dev/api/films/3/",
+					"https://swapi.dev/api/films/4/",
+					"https://swapi.dev/api/films/5/",
+					"https://swapi.dev/api/films/6/"
+				],
+				"url": "https://swapi.dev/api/people/10/"
+			}
+		]
+	}
+}

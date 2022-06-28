@@ -52,7 +52,7 @@ export default function Home() {
 
 				<div>
 					{people.map((people, key) => (
-						<Card character={people} id={key + 1} key={key} />
+						<Card character={people} key={key} />
 					))}
 				</div>
 				{nextPage && (
