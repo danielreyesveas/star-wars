@@ -21,6 +21,7 @@ export interface People {
 	mass: string;
 	name: string;
 	skin_color: string;
+	url: string;
 }
 
 export interface PeopleResponse {

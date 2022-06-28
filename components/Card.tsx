@@ -3,14 +3,15 @@ import { People } from "../types";
 import Link from "next/link";
 
 type CardProps = {
-	id: number;
 	character: People;
 };
 
-export default function Card({ character, id, ...props }: CardProps) {
+export default function Card({ character, ...props }: CardProps) {
+	const id = character.url.split("/api").splice(-1).toString();
+
 	return (
 		<div {...props}>
-			<Link href={`/character/${id}`}>
+			<Link href={id}>
 				<h2>{character.name}</h2>
 			</Link>
 

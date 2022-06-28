@@ -11,7 +11,7 @@ import { People, Film } from "../../types";
 
 dayjs.extend(relativeTime);
 
-export default function Character() {
+export default function PeopleComponent() {
 	const router = useRouter();
 	const [character, setCharacter] = useState<People | null>(null);
 	const { id } = router.query;
