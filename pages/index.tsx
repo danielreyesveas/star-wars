@@ -1,41 +1,26 @@
-import Head from "next/head";
-import Image from "next/image";
-
 import { useEffect, useState, useCallback } from "react";
+import Head from "next/head";
 
-import axios from "axios";
-
-import { People, PeopleResponse } from "../types";
+import { People } from "../types";
 import Card from "../components/Card";
+import useFetch from "../useFetch";
 
 export default function Home() {
 	const [people, setPeople] = useState<People[]>([]);
 	const [nextPage, setNextPage] = useState<string | null>(null);
 	const [page, setPage] = useState<string>("/people");
-
-	// Prevent infinite loop as useEffect dependency
-	const fetchPeople = useCallback(async () => {
-		let res: PeopleResponse;
-
-		try {
-			res = await axios.get(page);
-		} catch (e) {
-			throw new Error(e);
-		}
-
-		const {
-			data: { results, next },
-		} = res;
-
-		setPeople((prev) => [...prev, ...results]);
-		setNextPage(next);
-	}, [page]);
+	useFetch({
+		url: page,
+		onSuccess: (data) => {
+			if (!data) return;
+			const { results, next } = data;
+			setPeople((prev) => [...prev, ...results]);
+			setNextPage(next);
+		},
+		onError: (e) => console.log(e),
+	});
 
 	const loadMore = () => nextPage && setPage(nextPage);
-
-	useEffect(() => {
-		if (page) fetchPeople();
-	}, [page, fetchPeople]);
 
 	return (
 		<div className="wrapper">
