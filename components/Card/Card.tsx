@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { People } from "../types";
+import { People } from "../../types";
 
 type CardProps = {
 	character: People;

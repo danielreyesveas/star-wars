@@ -26,7 +26,9 @@ export interface People {
 }
 
 export interface PeopleResponse {
-	data: { previous: string | null; next: string | null; results: People[] };
+	previous: string | null;
+	next: string | null;
+	results: People[];
 }
 
 export interface CharacterResponse {

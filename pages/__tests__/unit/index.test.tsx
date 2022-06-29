@@ -9,7 +9,6 @@ import { BASE_URL } from "../../../constants";
 
 const successResponse = require("../fixtures/people/200.json");
 const successResponseNoPagination = require("../fixtures/people/200-no-pagination.json");
-const emptyResponse = { data: { results: [] } };
 
 describe("Home", () => {
 	let spy, url;
@@ -41,6 +40,19 @@ describe("Home", () => {
 		expect(
 			screen.getByRole("heading", { level: 2, name: /c-3po/i })
 		).toBeInTheDocument();
+	});
+
+	it("should render try again button if the fetch fails, and fetch again on click on it", async () => {
+		url = `${BASE_URL}/people`;
+		mock.onGet(url).reply(500, { message: "" });
+
+		await act(async () => {
+			render(<Home />);
+		});
+
+		const button = screen.getByRole("button", { name: /try again/i });
+
+		expect(button).toBeInTheDocument();
 	});
 
 	it("should render load more button if there are next page available", async () => {

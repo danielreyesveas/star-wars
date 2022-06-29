@@ -8,28 +8,32 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { People, Film } from "../../types";
 import useFetch from "../../hooks/useFetch";
 import Spinner from "../../components/Spinner";
+import { FILMS_ENDPOINT, PEOPLE_ENDPOINT } from "../../constants";
 
 dayjs.extend(relativeTime);
 
 export default function PeopleComponent() {
 	const router = useRouter();
+
 	const [character, setCharacter] = useState<People | null>(null);
+	const [characterUrl, setCharacterURL] = useState<string | null>(null);
+
 	const [films, setFilms] = useState<Film[] | null>(null);
-	const [url, setURL] = useState<string | null>(null);
+	const [filmsUrl, setFilmsUrl] = useState<string | null>(FILMS_ENDPOINT);
+
+	const [error, setError] = useState<string | null>(null);
 	const { id } = router.query;
 
 	// Fetch character
-	useFetch({
-		url,
+	const { error: charactersError } = useFetch({
+		url: characterUrl,
 		onSuccess: (data) => data && setCharacter(data),
-		onError: (e) => console.log(e),
 	});
 
 	// Fetch films
-	const { loading } = useFetch({
-		url: "films",
+	const { loading, error: filmsError } = useFetch({
+		url: filmsUrl,
 		onSuccess: (data) => data && setFilms(data.results),
-		onError: (e) => console.log(e),
 		loader: false,
 	});
 
@@ -37,6 +41,7 @@ export default function PeopleComponent() {
 		if (character && films) {
 			if (!!character.films_details) return;
 
+			// get character films details
 			const filmsDetails = films.filter((item: Film) =>
 				character.films.includes(item.url)
 			);
@@ -45,67 +50,91 @@ export default function PeopleComponent() {
 		}
 	}, [character, films]);
 
+	// setError if any fetch fails
 	useEffect(() => {
-		id && setURL(`people/${id}`);
+		if (charactersError || filmsError) setError("Error");
+		else setError(null);
+	}, [charactersError, filmsError]);
+
+	useEffect(() => {
+		id && setCharacterURL(`${PEOPLE_ENDPOINT}/${id}`);
 	}, [id]);
+
+	const tryAgain = () => {
+		setCharacterURL(`${PEOPLE_ENDPOINT}/${id}`);
+		setFilmsUrl(FILMS_ENDPOINT);
+	};
 
 	return (
 		<div className="details">
-			{character && (
-				<div className="details__wrapper">
-					<div className="details__main">
-						<Link href="/">{backArrow()}</Link>
+			<div className="details__wrapper">
+				{error ? (
+					<>
+						<div className="error">
+							Oops, something went wrong...
+							<button onClick={tryAgain}>try again</button>
+						</div>
+					</>
+				) : (
+					character && (
+						<div className="details__main">
+							<Link href="/">{backArrow()}</Link>
 
-						<div className="details__name">
-							<p>{character.name}</p>
-						</div>
-						<div className="details__body">
-							<p>
-								Height: <span>{character.height}</span>
-							</p>
-							<p>
-								Mass: <span>{character.mass}</span>
-							</p>
-							<p>
-								Hair Color: <span>{character.hair_color}</span>
-							</p>
-							<p>
-								Skin Color: <span>{character.skin_color}</span>
-							</p>
-							<p>
-								Eye Color: <span>{character.eye_color}</span>
-							</p>
-							<p>
-								Birth Year: <span>{character.birth_year}</span>
-							</p>
-							<p>
-								Gender: <span>{character.gender}</span>
-							</p>
-						</div>
-						<div className="details__films">
-							<p className="details__films__title">
-								{character.films.length} Films
-							</p>
-							<div className="details__films__list">
-								{loading ? (
-									<Spinner />
-								) : (
-									character.films_details?.map(
-										(item, key) => (
-											<p key={key}>
-												{item.title}:{" "}
-												{dayjs(
-													item.release_date
-												).fromNow()}
-											</p>
+							<div className="details__name">
+								<p>{character.name}</p>
+							</div>
+							<div className="details__body">
+								<p>
+									Height: <span>{character.height}</span>
+								</p>
+								<p>
+									Mass: <span>{character.mass}</span>
+								</p>
+								<p>
+									Hair Color:{" "}
+									<span>{character.hair_color}</span>
+								</p>
+								<p>
+									Skin Color:{" "}
+									<span>{character.skin_color}</span>
+								</p>
+								<p>
+									Eye Color:{" "}
+									<span>{character.eye_color}</span>
+								</p>
+								<p>
+									Birth Year:{" "}
+									<span>{character.birth_year}</span>
+								</p>
+								<p>
+									Gender: <span>{character.gender}</span>
+								</p>
+							</div>
+							<div className="details__films">
+								<p className="details__films__title">
+									{character.films.length} Films
+								</p>
+								<div className="details__films__list">
+									{loading ? (
+										<Spinner />
+									) : (
+										character.films_details?.map(
+											(item, key) => (
+												<p key={key}>
+													{item.title}:{" "}
+													{dayjs(
+														item.release_date
+													).fromNow()}
+												</p>
+											)
 										)
-									)
-								)}
+									)}
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			)}
+					)
+				)}
+			</div>
 		</div>
 	);
 }

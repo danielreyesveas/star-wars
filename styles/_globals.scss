@@ -55,6 +55,18 @@ body {
 	margin: 2rem;
 }
 
+.error-wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+
+	div {
+		display: flex;
+		align-items: center;
+	}
+}
+
 .cards-wrapper {
 	display: grid;
 	gap: 1rem;
@@ -75,6 +87,31 @@ body {
 		padding-top: 1rem;
 		padding-bottom: 1rem;
 		margin-top: 2.5rem;
+		cursor: pointer;
+
+		&:hover {
+			text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+			box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+		}
+	}
+}
+
+.error {
+	color: $font-tertiary;
+	text-align: center;
+	padding: 1rem;
+
+	button {
+		background-color: $btn;
+		border-radius: $btn-radius;
+		border: 2px solid $clr-gray700;
+		font-family: inherit;
+		font-size: 1rem;
+		font-weight: bold;
+		color: $bg;
+		width: 6rem;
+		margin-left: 0.5rem;
+
 		cursor: pointer;
 
 		&:hover {

@@ -1,11 +1,10 @@
-import { render as rtlRender, screen, waitFor } from "@testing-library/react";
+import { render as rtlRender, screen } from "@testing-library/react";
 
-import PageLoader from "./PageLoader";
+import PageLoader from "../../PageLoader";
 import {
 	PageLoaderContext,
 	PageLoaderProvider,
-	usePageLoader,
-} from "../../contexts/page-loader.context";
+} from "../../../../contexts/page-loader.context";
 
 const render = (ui: React.ReactElement, { value }: { value: any }) =>
 	rtlRender(ui, {
@@ -17,7 +16,7 @@ const render = (ui: React.ReactElement, { value }: { value: any }) =>
 	});
 
 describe("PageLoader", () => {
-	it.only("should render Page Loader if showLoader value in context is true", () => {
+	it("should render Page Loader if showLoader value in context is true", () => {
 		const value = { showLoader: true };
 
 		render(<PageLoader />, { value });
@@ -28,15 +27,7 @@ describe("PageLoader", () => {
 	});
 
 	it("should not render Page Loader if showLoader value in context is true", () => {
-		//rtlRender(<PageLoader />, { wrapper: PageLoaderProvider });
-		rtlRender(
-			<PageLoaderProvider>
-				<PageLoader />
-			</PageLoaderProvider>
-		);
-		const { setShowLoader } = usePageLoader();
-
-		waitFor(() => setShowLoader(true));
+		rtlRender(<PageLoader />, { wrapper: PageLoaderProvider });
 
 		const pageLoader = screen.queryByTestId("page-loader");
 
