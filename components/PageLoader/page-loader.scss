@@ -1,0 +1,29 @@
+.loader {
+	width: 100%;
+	display: block;
+	align-items: center;
+	justify-content: center;
+	z-index: 99998;
+	overflow: show;
+	position: relative;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	&::before {
+		background-color: rgba(67, 67, 67, 0.404);
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: fixed;
+		content: "";
+	}
+
+	&__container {
+		position: fixed;
+	}
+}

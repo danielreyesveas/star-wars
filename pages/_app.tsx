@@ -1,11 +1,16 @@
 import "../styles/_globals.scss";
 import { AppProps } from "next/app";
-import axios from "axios";
 
-axios.defaults.baseURL = "https://swapi.dev/api/";
+import PageLoader from "../components/PageLoader";
+import { PageLoaderProvider } from "../contexts/page-loader.context";
 
 function App({ Component, pageProps }: AppProps) {
-	return <Component {...pageProps} />;
+	return (
+		<PageLoaderProvider>
+			<PageLoader />
+			<Component {...pageProps} />
+		</PageLoaderProvider>
+	);
 }
 
 export default App;

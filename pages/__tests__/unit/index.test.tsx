@@ -1,37 +1,37 @@
-import {
-	render,
-	screen,
-	fireEvent,
-	waitFor,
-	act,
-} from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
+
 import Home from "../../index";
 import "@testing-library/jest-dom";
+import MockAdapter from "axios-mock-adapter";
 
-jest.mock("axios"); // This overwrites axios methods with jest Mock
 import axios from "axios";
+import { BASE_URL } from "../../../constants";
 
 const successResponse = require("../fixtures/people/200.json");
 const successResponseNoPagination = require("../fixtures/people/200-no-pagination.json");
-const emptyResponse = { data: { results: [] } };
-
-const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("Home", () => {
+	let spy, url;
+	let mock: any;
+
+	beforeEach(() => {
+		mock = new MockAdapter(axios);
+	});
+
 	afterEach(() => {
-		mockedAxios.get.mockClear();
+		mock.reset();
 	});
 
 	it("should render people list after fetching", async () => {
-		mockedAxios.get.mockImplementationOnce(() =>
-			Promise.resolve(successResponse)
-		);
+		url = `${BASE_URL}/people`;
+		spy = jest.spyOn(mock, "onGet");
+		mock.onGet(url).reply(200, successResponse);
 
 		await act(async () => {
 			render(<Home />);
 		});
 
-		expect(mockedAxios.get).toHaveBeenCalledTimes(1);
+		expect(spy).toHaveBeenCalledTimes(1);
 
 		expect(
 			screen.getByRole("heading", { level: 2, name: /luke skywalker/i })
@@ -42,10 +42,22 @@ describe("Home", () => {
 		).toBeInTheDocument();
 	});
 
+	it("should render try again button if the fetch fails, and fetch again on click on it", async () => {
+		url = `${BASE_URL}/people`;
+		mock.onGet(url).reply(500, { message: "" });
+
+		await act(async () => {
+			render(<Home />);
+		});
+
+		const button = screen.getByRole("button", { name: /try again/i });
+
+		expect(button).toBeInTheDocument();
+	});
+
 	it("should render load more button if there are next page available", async () => {
-		mockedAxios.get.mockImplementationOnce(() =>
-			Promise.resolve(successResponse)
-		);
+		url = `${BASE_URL}/people`;
+		mock.onGet(url).reply(200, successResponse);
 
 		await act(async () => {
 			render(<Home />);
@@ -57,9 +69,8 @@ describe("Home", () => {
 	});
 
 	it("should not render load more button if there are not next page available", async () => {
-		mockedAxios.get.mockImplementationOnce(() =>
-			Promise.resolve(successResponseNoPagination)
-		);
+		url = `${BASE_URL}/people`;
+		mock.onGet(url).reply(200, successResponseNoPagination);
 
 		await act(async () => {
 			render(<Home />);
@@ -71,26 +82,26 @@ describe("Home", () => {
 	});
 
 	it("should fetch again when load more button is pressed", async () => {
-		mockedAxios.get.mockImplementation(() =>
-			Promise.resolve(successResponse)
-		);
+		url = `${BASE_URL}/people`;
+		spy = jest.spyOn(mock, "onGet");
+		mock.onGet(url).reply(200, successResponse);
 
 		await act(async () => {
 			render(<Home />);
 		});
 
-		expect(mockedAxios.get).toHaveBeenCalledTimes(1);
-
-		mockedAxios.get.mockImplementation(() =>
-			Promise.resolve(successResponseNoPagination)
-		);
+		expect(spy).toHaveBeenCalledTimes(1);
 
 		const button = screen.getByRole("button", { name: /load more/i });
+
+		url = `${BASE_URL}/people/?page=2`;
+		spy = jest.spyOn(mock, "onGet");
+		mock.onGet(url).reply(200, successResponseNoPagination);
 
 		await act(async () => {
 			fireEvent.click(button);
 		});
 
-		expect(mockedAxios.get).toHaveBeenCalledTimes(2);
+		expect(spy).toHaveBeenCalledTimes(2);
 	});
 });

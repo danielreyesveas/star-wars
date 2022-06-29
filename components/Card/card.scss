@@ -6,8 +6,11 @@
 
 	@function colors($i) {
 		$index: $i;
-		@if ($index >= $max) {
-			$index: ($i + 1) - $max;
+		@if ($index > $max) {
+			$index: $i % $max;
+		}
+		@if ($index==0) {
+			$index: $max;
 		}
 		@return var(--clr + $index);
 	}
