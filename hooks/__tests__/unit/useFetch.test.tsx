@@ -1,10 +1,10 @@
-import { renderHook, act } from "@testing-library/react";
+import { act, renderHook } from "@testing-library/react";
 
 import "@testing-library/jest-dom";
 import MockAdapter from "axios-mock-adapter";
 
 import axios from "axios";
-import useFetch from "../../../useFetch";
+import useFetch from "../../useFetch";
 import { BASE_URL } from "../../../constants";
 
 describe("useFetch", () => {
@@ -24,7 +24,10 @@ describe("useFetch", () => {
 		url = `${BASE_URL}/URL`;
 		mock.onGet(url).reply(200, { data: "DATA" });
 
-		renderHook(() => useFetch({ url: "/URL" }));
+		await act(async () => {
+			renderHook(() => useFetch({ url: "/URL" }));
+		});
+
 		expect(spy).toHaveBeenCalledTimes(1);
 		expect(spy).toHaveBeenCalledWith(url);
 	});
@@ -34,7 +37,10 @@ describe("useFetch", () => {
 		mock.onGet(url).reply(200, { data: "DATA" });
 		spy = jest.spyOn(mock, "onGet");
 
-		renderHook(() => useFetch({ url: null }));
+		await act(async () => {
+			renderHook(() => useFetch({ url: null }));
+		});
+
 		expect(spy).not.toHaveBeenCalled();
 	});
 });

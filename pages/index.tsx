@@ -1,9 +1,10 @@
-import { useEffect, useState, useCallback } from "react";
+import { useState } from "react";
 import Head from "next/head";
 
 import { People } from "../types";
+
 import Card from "../components/Card";
-import useFetch from "../useFetch";
+import useFetch from "../hooks/useFetch";
 
 export default function Home() {
 	const [people, setPeople] = useState<People[]>([]);

@@ -6,7 +6,8 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
 import { People, Film } from "../../types";
-import useFetch from "../../useFetch";
+import useFetch from "../../hooks/useFetch";
+import Spinner from "../../components/Spinner";
 
 dayjs.extend(relativeTime);
 
@@ -25,10 +26,11 @@ export default function PeopleComponent() {
 	});
 
 	// Fetch films
-	useFetch({
+	const { loading } = useFetch({
 		url: "films",
 		onSuccess: (data) => data && setFilms(data.results),
 		onError: (e) => console.log(e),
+		loader: false,
 	});
 
 	useEffect(() => {
@@ -85,12 +87,20 @@ export default function PeopleComponent() {
 								{character.films.length} Films
 							</p>
 							<div className="details__films__list">
-								{character.films_details?.map((item, key) => (
-									<p key={key}>
-										{item.title}:{" "}
-										{dayjs(item.release_date).fromNow()}
-									</p>
-								))}
+								{loading ? (
+									<Spinner />
+								) : (
+									character.films_details?.map(
+										(item, key) => (
+											<p key={key}>
+												{item.title}:{" "}
+												{dayjs(
+													item.release_date
+												).fromNow()}
+											</p>
+										)
+									)
+								)}
 							</div>
 						</div>
 					</div>

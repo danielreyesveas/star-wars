@@ -1,8 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gelasio&display=swap");
 @import "./variables";
 
 // Components
-@import "../components/card.scss";
+@import "../components/Card/card.scss";
+@import "../components/PageLoader/page-loader.scss";
+@import "../components/Spinner/spinner.scss";
 
 *,
 *::before,
@@ -13,10 +15,12 @@
 }
 
 body {
-	font-family: "Noto Sans", sans-serif;
+	font-family: "Gelasio", serif;
 	color: $font-primary;
 	background: $bg;
 }
+
+// index
 
 .title {
 	margin-bottom: 2rem;
@@ -66,7 +70,7 @@ body {
 		font-family: inherit;
 		font-size: 1rem;
 		font-weight: bold;
-		color: inherit;
+		color: $bg;
 		width: 10rem;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
@@ -74,10 +78,13 @@ body {
 		cursor: pointer;
 
 		&:hover {
-			color: $clr-primary;
+			text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+			box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 		}
 	}
 }
+
+// people
 
 .details {
 	&__wrapper {
@@ -134,7 +141,7 @@ body {
 		}
 
 		&__list {
-			margin-top: 1rem;
+			margin-top: 2rem;
 
 			p {
 				&::before {

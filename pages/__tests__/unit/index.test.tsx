@@ -1,17 +1,10 @@
-import {
-	render,
-	screen,
-	fireEvent,
-	renderHook,
-	act,
-} from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 
 import Home from "../../index";
 import "@testing-library/jest-dom";
 import MockAdapter from "axios-mock-adapter";
 
 import axios from "axios";
-import useFetch from "../../../useFetch";
 import { BASE_URL } from "../../../constants";
 
 const successResponse = require("../fixtures/people/200.json");
