@@ -1,3 +1,5 @@
+process.env.NEXT_PUBLIC_DELAY = "false";
+
 import { render, screen, fireEvent, act } from "@testing-library/react";
 
 import Home from "../../index";

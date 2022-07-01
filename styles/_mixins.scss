@@ -1,0 +1,114 @@
+// Media queries
+
+@mixin xs {
+	@media (max-width: 499px) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (min-width: 500px) and (max-width: 767px) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (min-width: 768px) and (max-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin bg {
+	@media (min-width: 1201px) {
+		@content;
+	}
+}
+
+@mixin position($i) {
+	@at-root .card:nth-child(#{$i}) {
+		border-radius: $radius;
+	}
+	@include md {
+		margin-top: auto;
+		margin-bottom: auto;
+		top: 0;
+		bottom: 0;
+		@if ($i % 2==0) {
+			right: $dist;
+		} @else {
+			left: $dist;
+		}
+	}
+
+	@include bg {
+		$index: $i % 3;
+		@if ($index==1) {
+			margin-top: auto;
+			margin-bottom: auto;
+			top: 0;
+			bottom: 0;
+			left: $dist;
+		} @else if ($index==2) {
+			margin-top: auto;
+			margin-right: auto;
+			margin-bottom: auto;
+			margin-left: auto;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		} @else {
+			margin-top: auto;
+			margin-left: auto;
+			margin-bottom: auto;
+			right: $dist;
+			top: 0;
+			bottom: 0;
+		}
+	}
+
+	@include sm {
+		margin-top: auto;
+		margin-right: auto;
+		margin-bottom: auto;
+		margin-left: auto;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+@mixin button {
+	background-color: $font-secondary-dark;
+	border-radius: $btn-radius;
+	border: 2px solid $font-primary;
+	font-family: $font-family;
+	font-size: 2rem;
+	color: $bg;
+	width: 10rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	cursor: pointer;
+
+	&:hover {
+		text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+		box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+		transition: 0.5s;
+	}
+}
+
+@mixin errorButton {
+	position: fixed;
+	top: 1.5rem;
+	right: 1.5rem;
+	text-align: center;
+
+	button {
+		@include button;
+		font-size: 1rem;
+		width: 3.5rem;
+		height: 3.5rem;
+		border-radius: 50%;
+	}
+}

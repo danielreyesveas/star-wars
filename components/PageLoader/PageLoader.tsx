@@ -6,7 +6,7 @@ const PageLoader = () => {
 	return showLoader ? (
 		<div data-testid="page-loader" className="loader">
 			<div className="loader__container">
-				<Spinner />
+				<Spinner className="spinner" />
 			</div>
 		</div>
 	) : null;

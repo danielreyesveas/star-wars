@@ -1,24 +1,39 @@
 .spinner {
 	display: inline-block;
+	position: absolute;
 	top: 50%;
-	position: inherit;
 	left: 50%;
-	width: 50px;
-	height: 50px;
-	border: 6px solid rgba(255, 255, 255, 0.3);
-	border-radius: 50%;
-	border-top-color: $clr-dark;
-	animation: spin 1s ease-in-out infinite;
-	-webkit-animation: spin 1s ease-in-out infinite;
+	margin-left: -50px;
+	margin-top: -50px;
+	animation: scale 1s linear infinite;
+	-webkit-animation: scale 1s linear infinite;
 }
 
-@keyframes spin {
-	to {
-		-webkit-transform: rotate(360deg);
+@keyframes scale {
+	0% {
+		-webkit-transform: scale(1);
+	}
+	25% {
+		-webkit-transform: scale(1.25);
+	}
+	50% {
+		-webkit-transform: scale(1.5);
+	}
+	75% {
+		-webkit-transform: scale(1.25);
 	}
 }
-@-webkit-keyframes spin {
-	to {
-		-webkit-transform: rotate(360deg);
+@-webkit-keyframes scale {
+	0% {
+		-webkit-transform: scale(1);
+	}
+	25% {
+		-webkit-transform: scale(1.25);
+	}
+	50% {
+		-webkit-transform: scale(1.5);
+	}
+	75% {
+		-webkit-transform: scale(1.25);
 	}
 }

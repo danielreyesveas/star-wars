@@ -1,0 +1,26 @@
+.error {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 3rem;
+
+	&__text {
+		color: $font-primary;
+		text-align: center;
+		padding: 1rem;
+		display: flex;
+		align-items: center;
+
+		span {
+			margin-left: 1rem;
+		}
+	}
+
+	&__button {
+		button {
+			@include button;
+			margin-top: 2.5rem;
+		}
+	}
+}

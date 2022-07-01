@@ -1,18 +1,27 @@
 import { useState, useEffect } from "react";
 import { usePageLoader } from "../contexts/page-loader.context";
 
+import axios from "axios";
+import { timeout } from "../utils";
+import { BASE_URL, DELAY } from "../constants";
+
 interface RequestProps {
 	url: string | null;
 	loader?: boolean;
 	onSuccess?: (data: any) => void;
 	onError?: (error: any) => void;
+	delay?: number;
 }
-import axios from "axios";
-import { BASE_URL } from "../constants";
 
 axios.defaults.baseURL = BASE_URL;
 
-const useFetch = ({ url, onSuccess, onError, loader = true }: RequestProps) => {
+const useFetch = ({
+	url,
+	onSuccess,
+	onError,
+	loader = true,
+	delay = 100,
+}: RequestProps) => {
 	const { setShowLoader } = usePageLoader();
 	const [data, setData] = useState(null);
 	const [error, setError] = useState(null);
@@ -27,6 +36,9 @@ const useFetch = ({ url, onSuccess, onError, loader = true }: RequestProps) => {
 			setError(null);
 
 			try {
+				// Delay the request to load the spinner
+				DELAY && (await timeout(delay));
+
 				const { data: response } = await axios.request({ url });
 
 				onSuccess && onSuccess(response);
