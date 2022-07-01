@@ -5,8 +5,8 @@ import Link from "next/link";
 import useFetch from "../../hooks/useFetch";
 import Spinner from "../../components/Spinner";
 
-import { FILMS_ENDPOINT, PEOPLE_ENDPOINT } from "../../constants";
 import { getFilmsDetails, yearsFromNow } from "../../utils";
+import { FILMS_ENDPOINT, PEOPLE_ENDPOINT } from "../../constants";
 import { People, Film } from "../../types";
 import ErrorMessage from "../../components/ErrorMessage";
 import BackArrow from "../../components/Icons/BackArrow";

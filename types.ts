@@ -7,10 +7,6 @@ export interface Film {
 	release_date: string;
 }
 
-export interface FilmResponse {
-	data: { previous: string | null; next: string | null; results: Film[] };
-}
-
 export interface People {
 	birth_year: string;
 	eye_color: string;

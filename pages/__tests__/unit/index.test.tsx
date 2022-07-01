@@ -1,3 +1,5 @@
+process.env.NEXT_PUBLIC_DELAY = "false";
+
 import { render, screen, fireEvent, act } from "@testing-library/react";
 
 import Home from "../../index";
@@ -22,7 +24,7 @@ describe("Home", () => {
 		mock.reset();
 	});
 
-	it.only("should render people list after fetching", async () => {
+	it("should render people list after fetching", async () => {
 		url = `${BASE_URL}/people`;
 		spy = jest.spyOn(mock, "onGet");
 		mock.onGet(url).reply(200, successResponse);

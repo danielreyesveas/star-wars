@@ -8,3 +8,6 @@ export const yearsFromNow = (birthday: string) => {
 
 export const getFilmsDetails = (films: Film[], characterFilms: string[]) =>
 	films.filter((item: Film) => characterFilms.includes(item.url));
+
+export const timeout = (ms: number) =>
+	new Promise((resolve) => setTimeout(resolve, ms));

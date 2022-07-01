@@ -1,5 +1,6 @@
+process.env.NEXT_PUBLIC_DELAY = "false";
+
 import { render, screen, act } from "@testing-library/react";
-import { useRouter } from "next/router";
 
 import People from "../../people/[id]";
 import "@testing-library/jest-dom";
@@ -48,8 +49,6 @@ describe("People", () => {
 		expect(spy).toHaveBeenCalledTimes(2);
 
 		expect(screen.getByText(/luke skywalker/i));
-
-		screen.debug();
 	});
 
 	it("should render try again button if fetch character fails, and fetch again on click on it", async () => {

@@ -5,8 +5,8 @@ import useFetch from "../hooks/useFetch";
 import Card from "../components/Card";
 
 import { People, PeopleResponse } from "../types";
-import { PEOPLE_ENDPOINT } from "../constants";
 import ErrorMessage from "../components/ErrorMessage";
+import { PEOPLE_ENDPOINT } from "../constants";
 
 export default function Home() {
 	const [people, setPeople] = useState<People[]>([]);
