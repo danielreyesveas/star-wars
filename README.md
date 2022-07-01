@@ -31,7 +31,7 @@ $ cd star-wars
 # Install server dependencies
 $ npm install
 
-# Create a .env file at the root of the project (star-wars/) with the followi content:
+# Create a .env file at the root of the project (star-wars/) with the followig content:
 
 NEXT_PUBLIC_BASE_URL=https://swapi.dev/api
 NEXT_PUBLIC_PEOPLE_ENDPOINT=/people
@@ -59,7 +59,6 @@ The app will be running on http://localhost:3000/
 -   [ReactJS](https://reactjs.org/) - v18.2.0
 -   [SASS](https://sass-lang.com/) - v1.53.0
 
-<br />
 <br />
 
 ⌨️ by [Daniel Reyes Veas](https://github.com/danielreyesveas)
