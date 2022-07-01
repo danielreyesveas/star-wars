@@ -70,7 +70,7 @@ export default function Home() {
 				</>
 			)}
 
-			<div className="home__error-button">
+			<div className="home__error-button" title="Force an error">
 				{!loading && <button onClick={fetchError}>Error</button>}
 			</div>
 		</div>

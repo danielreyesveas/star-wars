@@ -1,27 +1,25 @@
 # 🌌 Star Wars Characters
 
-Star Wars Characters is frontend app where you can.
-[Next.js](https://nextjs.org/).
+Star Wars Characters is frontend app where you can query the [SWAPI](https://swapi.dev/), the Star Wars API.
 
 <br />
 
-<div align="center"><img src="https://resources.reciclatusanimales.com/image/clics.png" width=700></div>
-<br />
-<div align="center"><img src="https://resources.reciclatusanimales.com/image/chat-notifications.png" width=700></div>
+<div align="center"><img src="https://i.ibb.co/jL8tvBy/bg.png" width=600></div>
 <br />
 
-## Features 📋
+Live Demo on: [https://netlify.com/](https://mellow-pastelito-2eb585.netlify.app/)
 
--   Thematic commmunities.
--   Posts with comments, likes & dislikes, follows and groups invitations.
--   Infinite scroll.
--   Realtime chat module.
--   Realtime notifications.
--   Login with Google.
+Additional libraries used:
+
+-   [TypeScript](https://www.typescriptlang.org/) - to manage JS types.
+-   [SASS](https://sass-lang.com/) - to handle de styles.
+-   [Axios](https://axios-http.com/es/docs/intro) - to perform the app requests.
 
 ## Setup 🚀
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) 17.1.0 (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) 17.1.0 (which comes with [npm](http://npmjs.com)) installed on your computer.
+
+From your command line:
 
 ```bash
 # Clone this repository
@@ -32,6 +30,13 @@ $ cd star-wars
 
 # Install server dependencies
 $ npm install
+
+# Create a .env file at the root of the project (star-wars/) with the followi content:
+
+NEXT_PUBLIC_BASE_URL=https://swapi.dev/api
+NEXT_PUBLIC_PEOPLE_ENDPOINT=/people
+NEXT_PUBLIC_FILMS_ENDPOINT=/films
+NEXT_PUBLIC_DELAY=true
 
 # Run the app
 $ npm run dev
@@ -45,19 +50,19 @@ $ npm run test:coverage
 
 The app will be running on http://localhost:3000/
 
-Live Demo: [https://clics.reciclatusanimales.com/](https://clics.reciclatusanimales.com/)
+`NEXT_PUBLIC_DELAY` var in `.env` file sets a delay in all the requests. This is o only to display the spinner in screen, you can disable it setting `NEXT_PUBLIC_DELAY=false`.
 
 ## Built with 🛠️
 
--   [TypeScript](https://www.typescriptlang.org/) - v4.1.3
--   [Next.js](https://nextjs.org/) - v10.0.5
--   [ReactJS](https://reactjs.org/) - v17.0.1
--   [SASS](https://sass-lang.com/) - v2.0.3
+-   [TypeScript](https://www.typescriptlang.org/) - v4.7.4
+-   [Next.js](https://nextjs.org/) - v12.1.6
+-   [ReactJS](https://reactjs.org/) - v18.2.0
+-   [SASS](https://sass-lang.com/) - v1.53.0
 
 <br />
 <br />
 
-⌨️ por [Daniel Reyes Veas](https://github.com/danielreyesveas)
+⌨️ by [Daniel Reyes Veas](https://github.com/danielreyesveas)
 <br />
 💾 [reciclatusanimales.com](https://reciclatusanimales.com)
 
