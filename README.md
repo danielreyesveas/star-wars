@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌌 Star Wars Characters
 
-## Getting Started
+Star Wars Characters is frontend app where you can.
+[Next.js](https://nextjs.org/).
 
-First, run the development server:
+<br />
+
+<div align="center"><img src="https://resources.reciclatusanimales.com/image/clics.png" width=700></div>
+<br />
+<div align="center"><img src="https://resources.reciclatusanimales.com/image/chat-notifications.png" width=700></div>
+<br />
+
+## Features 📋
+
+-   Thematic commmunities.
+-   Posts with comments, likes & dislikes, follows and groups invitations.
+-   Infinite scroll.
+-   Realtime chat module.
+-   Realtime notifications.
+-   Login with Google.
+
+## Setup 🚀
+
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) 17.1.0 (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Clone this repository
+$ git clone https://github.com/danielreyesveas/star-wars.git
+
+# Go into the server folder
+$ cd star-wars
+
+# Install server dependencies
+$ npm install
+
+# Run the app
+$ npm run dev
+
+# Run tests
+$ npm run test
+
+# Run tests with coverage
+$ npm run test:coverage
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be running on http://localhost:3000/
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Live Demo: [https://clics.reciclatusanimales.com/](https://clics.reciclatusanimales.com/)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Built with 🛠️
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+-   [TypeScript](https://www.typescriptlang.org/) - v4.1.3
+-   [Next.js](https://nextjs.org/) - v10.0.5
+-   [ReactJS](https://reactjs.org/) - v17.0.1
+-   [SASS](https://sass-lang.com/) - v2.0.3
 
-## Learn More
+<br />
+<br />
 
-To learn more about Next.js, take a look at the following resources:
+⌨️ por [Daniel Reyes Veas](https://github.com/danielreyesveas)
+<br />
+💾 [reciclatusanimales.com](https://reciclatusanimales.com)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br />

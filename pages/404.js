@@ -2,17 +2,23 @@
 import Head from "next/head";
 import Link from "next/link";
 
+import ErrorMessage from "../components/ErrorMessage";
+
 export default function NotFound() {
 	return (
-		<div className="error-wrapper">
+		<div className="not-found">
 			<Head>
 				<title>Star Wars</title>
 				<meta name="description" content="Star Wars Characters" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<div className="error">
-				Look like you are lost...
+			<ErrorMessage
+				showButton={false}
+				message="Look like you are lost..."
+			/>
+
+			<div className="not-found__button">
 				<Link href="/">
 					<button>back home</button>
 				</Link>

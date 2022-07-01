@@ -1,6 +1,4 @@
 /*   color variables */
-$clr-dark: #039d69;
-$clr-bold: #5c940d;
 $clr-gray100: #f9fbff;
 $clr-gray150: #f4f6fb;
 $clr-gray200: #eef1f6;
@@ -10,58 +8,68 @@ $clr-gray500: #4f546c;
 $clr-gray600: #2a324b;
 $clr-gray700: #161d34;
 
-$bg: #eeeeee;
+$shadow-100: rgba(0, 0, 0, 0.1);
+$shadow-150: rgba(0, 0, 0, 0.2);
+$shadow-200: rgba(0, 0, 0, 0.3);
+$shadow-300: rgba(0, 0, 0, 0.4);
+$shadow-400: rgba(0, 0, 0, 0.5);
+$shadow-500: rgba(0, 0, 0, 0.6);
+$shadow-600: rgba(0, 0, 0, 0.7);
+$shadow-700: rgba(0, 0, 0, 0.8);
+
+$orange: #da4d1d;
+
+$bg: #fff1e6;
+$bg-dark: #ebcfbd77;
+$bg-secondary: #6d503f;
 $bg-light: #e0ebc7;
 
-$radius: 0.2rem;
-$btn-radius: 0.5rem;
+$radius: 0.5rem;
+$btn-radius: 0.8rem;
 
-$font-primary: #3a3f46;
-$font-secondary: #596dd0;
-$font-tertiary: #a61e4d;
+$dist: 0.5rem;
+
+$font-primary: #574837;
+$font-light: #5e503f;
+$font-dark: #41321f;
+$font-darker: #1d160d;
+
+$font-family: "VT323", monospace;
+
+$font-secondary: #a8ba4f;
+$font-secondary-light: #94b49f;
+$font-secondary-dark: #bd3e6a;
+$font-secondary-darker: #a61e4d;
+
 $btn: #82c91e;
 
-$max: 40;
+$max: 20;
+
+$mobile: 768px;
+$medium: 900px;
+$big: 1200px;
 
 :root {
-	--clr1: #f6d258;
+	--clr1: #ffe7bf;
 	--clr2: #efcec5;
 	--clr3: #d1af94;
+
 	--clr4: #97d5e0;
-	--clr5: #88b14b;
-	--clr6: #ef562d;
-	--clr7: #d13076;
+	--clr5: #c4dfaa;
+	--clr6: #ff869e;
+	--clr7: #ffc4c4;
 	--clr8: #5587a2;
-	--clr9: #5c7148;
-	--clr10: #0c4c8a;
-	--clr11: #4c6a92;
+	--clr9: #7d9d9c;
+
+	--clr10: #e4dccf;
+	--clr11: #fcc5c0;
 	--clr12: #92b6d5;
 	--clr13: #838487;
 	--clr14: #b93a32;
 	--clr15: #af9483;
-	--clr16: #ad5d5d;
-	--clr17: #006e51;
+	--clr16: #e4dccf;
+	--clr17: #d3ebcd;
 	--clr18: #d8ae47;
-	--clr19: #9e4624;
-	--clr20: #b76ba3;
-	--clr21: #f7cac9;
-	--clr22: #f7786b;
-	--clr23: #91a8d0;
-	--clr24: #034f84;
-	--clr25: #fae03c;
-	--clr26: #98ddde;
-	--clr27: #9896a4;
-	--clr28: #dd4132;
-	--clr29: #b18f6a;
-	--clr30: #79c753;
-	--clr31: #847a59;
-	--clr32: #a7ae9e;
-	--clr33: #58646d;
-	--clr34: #cf9c63;
-	--clr35: #964f4c;
-	--clr36: #097988;
-	--clr37: #203e4a;
-	--clr38: #f99471;
-	--clr39: #ce879f;
-	--clr40: #926aa6;
+	--clr19: #937dc2;
+	--clr20: #fff9d7;
 }

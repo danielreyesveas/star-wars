@@ -1,0 +1,143 @@
+.details {
+	&__wrapper {
+		padding: 2rem;
+	}
+
+	&__back {
+		font-size: 3rem;
+		color: $font-secondary-dark;
+		position: relative;
+		left: -1.5rem;
+		display: table;
+		cursor: pointer;
+
+		&:hover {
+			transform: scale(1.01);
+			transition: 0.5s;
+		}
+
+		span {
+			position: relative;
+			top: -0.5rem;
+			font-size: 1.5rem;
+			padding-left: 0.2rem;
+			font-family: $font-family;
+			display: none;
+			text-decoration: underline;
+		}
+	}
+
+	&__main {
+		margin: 2rem;
+	}
+
+	&__name {
+		p {
+			font-size: 5rem;
+			line-height: normal;
+			margin-top: 1rem;
+		}
+	}
+
+	&__body {
+		background-image: repeating-linear-gradient(
+			-35deg,
+			$bg-dark,
+			$bg-dark 2px,
+			rgba(255, 255, 255, 0.75) 0,
+			rgba(255, 255, 255, 0.75) 5px
+		);
+		box-shadow: 0 0 10px 5px $clr-gray300;
+		border: 3px dashed $font-secondary-light;
+		border-radius: $radius;
+		color: $font-secondary;
+		font-size: 2rem;
+		font-weight: lighter;
+		display: grid;
+		margin-top: 2.5rem;
+		gap: 1rem;
+		grid-template-columns: 1fr;
+		justify-content: center;
+		padding: 2rem;
+
+		span {
+			text-transform: capitalize;
+			font-weight: bold;
+		}
+	}
+
+	&__films {
+		margin-top: 3rem;
+
+		&__title {
+			color: $font-secondary-darker;
+			font-weight: bold;
+			font-size: 3rem;
+		}
+
+		&__list {
+			margin-top: 2rem;
+			position: relative;
+
+			p {
+				font-weight: bold;
+				font-size: 2rem;
+
+				&::before {
+					content: "-";
+					padding-right: 0.5rem;
+				}
+
+				span {
+					font-weight: lighter;
+				}
+			}
+
+			.spinner {
+				margin-top: 1rem;
+				left: 5rem;
+				position: relative;
+			}
+		}
+	}
+
+	&__error {
+		margin-top: 10rem;
+	}
+
+	&__error-button {
+		@include errorButton;
+	}
+}
+
+@include md {
+	.details {
+		&__body {
+			grid-template-columns: repeat(2, 1fr);
+
+			p {
+				min-height: 2.4rem;
+			}
+		}
+
+		&__back {
+			span {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+@include bg {
+	.details {
+		&__body {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		&__back {
+			span {
+				display: inline-block;
+			}
+		}
+	}
+}

@@ -1,0 +1,74 @@
+.home {
+	padding: 2rem 0;
+	margin: 2rem;
+
+	&__title {
+		margin-bottom: 3rem;
+		line-height: 1.15;
+		font-size: 5rem;
+		text-align: center;
+	}
+
+	&__wrapper {
+		display: grid;
+		gap: 2rem;
+		grid-template-columns: 1fr;
+		justify-content: center;
+		align-items: center;
+
+		@function colors($i) {
+			$index: $i;
+			@if ($index > $max) {
+				$index: $i % $max;
+			}
+			@if ($index==0) {
+				$index: $max;
+			}
+			@return var(--clr + $index);
+		}
+
+		@for $i from 1 to 100 {
+			.card:nth-child(#{$i}) {
+				background-color: colors($i);
+				opacity: 0.95;
+				button {
+					@include position($i);
+				}
+			}
+		}
+	}
+
+	&__more {
+		display: flex;
+		justify-content: center;
+
+		button {
+			@include button;
+			margin-top: 2.5rem;
+		}
+	}
+
+	&__error {
+		margin-top: 6rem;
+	}
+
+	&__error-button {
+		@include errorButton;
+	}
+}
+
+@include md {
+	.home {
+		&__wrapper {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
+@include bg {
+	.home {
+		&__wrapper {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}

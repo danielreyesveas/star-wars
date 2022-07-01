@@ -22,7 +22,7 @@ describe("Home", () => {
 		mock.reset();
 	});
 
-	it("should render people list after fetching", async () => {
+	it.only("should render people list after fetching", async () => {
 		url = `${BASE_URL}/people`;
 		spy = jest.spyOn(mock, "onGet");
 		mock.onGet(url).reply(200, successResponse);

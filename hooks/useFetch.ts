@@ -6,13 +6,25 @@ interface RequestProps {
 	loader?: boolean;
 	onSuccess?: (data: any) => void;
 	onError?: (error: any) => void;
+	delay?: number;
 }
 import axios from "axios";
-import { BASE_URL } from "../constants";
+import { BASE_URL, DELAY } from "../constants";
 
 axios.defaults.baseURL = BASE_URL;
 
-const useFetch = ({ url, onSuccess, onError, loader = true }: RequestProps) => {
+// Function to delay the fetch (to display spinner)
+function timeout(ms: number) {
+	return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+const useFetch = ({
+	url,
+	onSuccess,
+	onError,
+	loader = true,
+	delay,
+}: RequestProps) => {
 	const { setShowLoader } = usePageLoader();
 	const [data, setData] = useState(null);
 	const [error, setError] = useState(null);
@@ -28,6 +40,8 @@ const useFetch = ({ url, onSuccess, onError, loader = true }: RequestProps) => {
 
 			try {
 				const { data: response } = await axios.request({ url });
+
+				delay && (await timeout(delay * DELAY));
 
 				onSuccess && onSuccess(response);
 				setData(response);

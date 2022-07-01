@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Head from "next/head";
 
+import useFetch from "../hooks/useFetch";
+import Card from "../components/Card";
+
 import { People, PeopleResponse } from "../types";
 import { PEOPLE_ENDPOINT } from "../constants";
-
-import Card from "../components/Card";
-import useFetch from "../hooks/useFetch";
+import ErrorMessage from "../components/ErrorMessage";
 
 export default function Home() {
 	const [people, setPeople] = useState<People[]>([]);
@@ -21,47 +22,57 @@ export default function Home() {
 		setError(null);
 	};
 
-	useFetch({
+	const { loading } = useFetch({
 		url: page,
 		onSuccess,
 		onError: (error) => setError(error),
+		delay: 600,
 	});
 
 	const loadMore = () => nextPage && setPage(nextPage);
 
+	const fetchError = () => setPage("/people/?page=500");
+
 	const tryAgain = () => setPage(PEOPLE_ENDPOINT);
 
 	return (
-		<div className="wrapper">
+		<div className="home">
 			<Head>
 				<title>Star Wars</title>
 				<meta name="description" content="Star Wars Characters" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<h1 className="title">Star Wars Characters</h1>
+			<h1 className="home__title">Star Wars Characters</h1>
 
 			{error ? (
-				<>
-					<div className="error">
-						Oops, something went wrong...
-						<button onClick={tryAgain}>try again</button>
-					</div>
-				</>
+				<div className="home__error">
+					<ErrorMessage
+						textStyle={{ fontSize: "2rem" }}
+						iconStyles={{ width: "70", height: "70" }}
+						buttonStyles={{ width: "7rem", fontSize: "1.5rem" }}
+						onClick={tryAgain}
+					/>
+				</div>
 			) : (
 				<>
-					<div className="cards-wrapper">
+					<div className="home__wrapper">
 						{people.map((people, key) => (
 							<Card character={people} key={key} />
 						))}
 					</div>
+
 					{nextPage && (
-						<div className="load_more_btn">
+						<div className="home__more">
 							<button onClick={loadMore}>Load More</button>
 						</div>
 					)}
 				</>
 			)}
+
+			<div className="home__error-button">
+				{!loading && <button onClick={fetchError}>Error</button>}
+			</div>
 		</div>
 	);
 }
