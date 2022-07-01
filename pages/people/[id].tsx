@@ -58,7 +58,10 @@ export default function PeopleComponent() {
 		id && setCharacterURL(`${PEOPLE_ENDPOINT}/${id}`);
 	}, [id]);
 
-	const fetchError = () => setCharacterURL(`${PEOPLE_ENDPOINT}/500`);
+	const fetchError = () => {
+		setCharacter(null);
+		setCharacterURL(`${PEOPLE_ENDPOINT}/500`);
+	};
 
 	const tryAgain = () => {
 		setCharacterURL(`${PEOPLE_ENDPOINT}/${id}`);

@@ -36,9 +36,10 @@ const useFetch = ({
 			setError(null);
 
 			try {
-				const { data: response } = await axios.request({ url });
-
+				// Delay the request to load the spinner
 				DELAY && (await timeout(delay));
+
+				const { data: response } = await axios.request({ url });
 
 				onSuccess && onSuccess(response);
 				setData(response);
