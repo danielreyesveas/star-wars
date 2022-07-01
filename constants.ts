@@ -3,7 +3,7 @@ const PEOPLE_ENDPOINT = process.env.NEXT_PUBLIC_PEOPLE_ENDPOINT || "/people";
 const FILMS_ENDPOINT = process.env.NEXT_PUBLIC_FILMS_ENDPOINT || "/films";
 const DELAY = process.env.NEXT_PUBLIC_DELAY
 	? process.env.NEXT_PUBLIC_DELAY === "true"
-	: false;
+	: true;
 
 const constants = {
 	BASE_URL,
